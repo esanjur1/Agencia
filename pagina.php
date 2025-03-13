@@ -1,11 +1,11 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors',1);
+ini_set('display_errors', 1);
 
 session_start();
 
 $servername = "localhost";
-$db_username = "Eric";
+$db_username = "eric";
 $db_password = "Eric123!";
 $database = "Agencia_db";
 
@@ -19,19 +19,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $result = $conn->query($sql);
+    $stmt = $conn->prepare("SELECT id_users, username, contrasenya FROM users WHERE username=? LIMIT 1");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+
+    $result = $stmt->get_result();
 
     if ($result->num_rows == 1) {
-        $_SESSION['username'] = $username;
-        header("Location: dashboard.php");
-        exit();
+        $row = $result->fetch_assoc();
+
+        if (password_verify($password, $row['contrasenya'])) {
+            $_SESSION['username'] = $row['username'];
+            header("Location: dashboard.php");
+            exit();
+        }
     }
+
     echo "Usuario o contraseña incorrectos.";
+    $stmt->close();
 }
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
