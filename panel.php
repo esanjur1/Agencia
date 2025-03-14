@@ -11,6 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dbpass = "Eric123!";
     $conn = new mysqli($servername, $dbuser, $dbpass, $dbname);
 
+    include 'Agencia_db1.php';
+
     if ($conn->connect_error) {
         die("Conexión fallida: " . $conn->connect_error);
     }
