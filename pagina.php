@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT id_users, username, contrasenya FROM users WHERE username=? LIMIT 1");
+    $stmt = $conn->prepare("SELECT username, contrasenya FROM admin WHERE username=? LIMIT 1");
     $stmt->bind_param("s", $username);
     $stmt->execute();
 
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($password, $row['contrasenya'])) {
             $_SESSION['username'] = $row['username'];
-            header("Location: dashboard.php");
+            header("Location: panel.php");
             exit();
         }
     }
