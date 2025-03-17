@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración Básico</title>
-    <link href="panel1.css" rel="stylesheet">
+    <link href="panel.css" rel="stylesheet">
 </head>
 <body>
 
