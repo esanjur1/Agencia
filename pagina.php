@@ -1,47 +1,45 @@
 <?php
-error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 session_start();
+include 'conexion_db.php';
 
-$servername = "localhost";
-$db_username = "eric";
-$db_password = "Eric123!";
-$database = "Agencia_db";
-
-$conn = new mysqli($servername, $db_username, $db_password, $database);
-
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
-
+$stmt = null;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
 
-    $stmt = $conn->prepare("SELECT username, contrasenya FROM admin WHERE username=? LIMIT 1");
-    $stmt->bind_param("s", $username);
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT * FROM admins WHERE username = ?");
+    $stmt->bind_param("s", $user);
     $stmt->execute();
-
     $result = $stmt->get_result();
 
-    if ($result->num_rows == 1) {
+    if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        if (password_verify($password, $row['contrasenya'])) {
+        if ($pass === $row['contrasenya']) {
             $_SESSION['username'] = $row['username'];
+
+            $stmt->close();
+            $conn->close();
             header("Location: panel.php");
             exit();
+        } else {
+            echo "Usuario o contraseña incorrectos.";
         }
+    } else {
+        echo "Usuario o contraseña incorrectos.";
     }
-
-    echo "Usuario o contraseña incorrectos.";
-    $stmt->close();
 }
 
+if ($stmt) {
+    $stmt->close();
+}
 $conn->close();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -55,7 +53,7 @@ $conn->close();
 
     <div class="login-container">
         <h2>Iniciar Sesión</h2>
-        <form action="#" method="post">
+        <form action="panel.php" method="post">
             <input type="text" placeholder="Usuario" required>
             <input type="password" placeholder="Contraseña" required>
             <input type="submit" value="Ingresar">
