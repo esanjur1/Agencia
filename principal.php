@@ -68,3 +68,54 @@ if (!isset($_SESSION['username'])) {
       </div>
     </div>
   </section>
+
+  <section class="seccion-viajes">
+    <h2>Actividades</h2>
+    <div class="galeria-experiencias">
+      <div class="tarjeta-viaje">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/57/1d/67/caption.jpg?w=1200&h=-1&s=1" alt="Pirámides">
+        <h3>Tour por las pirámides</h3>
+        <p>Visita guiada por las pirámides de Giza</p>
+        <span class="costo">Precio: 120€</span>
+        <a href="#" class="boton-aplicacion">Aplicar</a>
+      </div>
+
+      <div class="tarjeta-viaje">
+        <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/13/4c/6a/1b.jpg" alt="Torre Eiffel">
+        <h3>Tour por la Torre Eiffel</h3>
+        <p>Visita a la Torre Eiffel y paseo por el río Sena</p>
+        <span class="costo">Precio: 90€</span>
+        <a href="#" class="boton-aplicacion">Aplicar</a>
+      </div>
+
+      <div class="tarjeta-viaje">
+        <img src="https://www.hola.com/horizon/original_aspect_ratio/7d30aeb026fa-madikwe-rn3bkp-a.jpg" alt="Safari">
+        <h3>Safari en Sudáfrica</h3>
+        <p>Safari para observar la fauna africana</p>
+        <span class="costo">Precio: 500€</span>
+        <a href="#" class="boton-aplicacion">Aplicar</a>
+      </div>
+
+      <div class="tarjeta-viaje">
+        <img src="https://image-tc.galaxy.tf/wijpeg-7ellqz2uqv2l9plk30futx9jr/experiencias-machu-picchu_wide.jpg?crop=0%2C63%2C1200%2C675" alt="Machu Picchu">
+        <h3>Machu Picchu</h3>
+        <p>Caminata hasta la ciudadela de Machu Picchu</p>
+        <span class="costo">Precio: 150€</span>
+        <a href="#" class="boton-aplicacion">Aplicar</a>
+      </div>
+
+      <div class="tarjeta-viaje">
+        <img src="https://img.static-kl.com/images/media/E5F5918C-9435-4CE6-9775780B48F3C39D" alt="Gran Muralla China">
+        <h3>Gran Muralla China</h3>
+        <p>Explora la Gran Muralla China en un recorrido guiado</p>
+        <span class="costo">Precio: 80€</span>
+        <a href="#" class="boton-aplicacion">Aplicar</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pie-pagina">
+    <p>&copy; 2025 MundoAventura. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
