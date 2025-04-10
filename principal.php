@@ -48,3 +48,37 @@ $resultado_actividades = $conexion->query($sql_actividades);
                 <p>No hay viajes disponibles.</p>
             <?php endif; ?>
         </div>
+    </section>
+
+    <section class="seccion-viajes">
+        <h2>Actividades Recomendadas</h2>
+        <div class="galeria-experiencias">
+            <?php if ($resultado_actividades->num_rows > 0) : ?>
+                <?php while ($actividad = $resultado_actividades->fetch_assoc()) : ?>
+                    <div class='tarjeta-viaje'>
+                        <img src="<?= $actividad["imagen"] ?>" alt="Imagen de <?= $actividad["nombre"] ?>">
+                        <h3><?= $actividad["nombre"] ?></h3>
+                        <p><strong>Ubicación:</strong> <?= $actividad["ubicacion"] ?></p>
+                        <p><strong>Fecha:</strong> <?= $actividad["fecha"] ?></p>
+                        <p><?= $actividad["descripcion"] ?></p>
+                        <span class='costo'>Precio: <?= $actividad["precio"] ?>€</span>
+                    </div>
+                <?php endwhile; ?>
+            <?php else : ?>
+                <p>No hay actividades disponibles.</p>
+            <?php endif; ?>
+        </div>
+    </section>
+
+    <footer class="pie-pagina">
+        © 2025 Mundo Aventura.
+    </footer>
+
+</body>
+
+</html>
+
+<?php
+
+$conexion->close();
+?>
