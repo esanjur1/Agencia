@@ -1,42 +1,60 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+$host = "localhost";
+$usuario = "eric";
+$contrasena = "Eric123!";
+$bd = "Agencia_db";
 
-session_start();
+$conexion = new mysqli($host, $usuario, $contrasena, $bd);
 
-if (!isset($_SESSION['username'])) {
-    header("Location: pagina.php");
-    exit();
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
 }
+
+$sql_usuarios = "SELECT * FROM users";
+$resultado_usuarios = $conexion->query($sql_usuarios);
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración Básico</title>
-    <link href="panel.css" rel="stylesheet">
+    <title>Panel de Administración</title>
+    <link href="estilo.css" rel="stylesheet">
 </head>
 <body>
 
-    <div class="sidebar">
-        <h2>Admin</h2>
-        <a href="#">Inicio</a>
-        <a href="#">Usuarios</a>
-        <a href="#">Ajustes</a>
-        <a href="logout.php">Cerrar Sesión</a>
-    </div>
+<div class="encabezado">
+    <div class="nombre-agencia">Panel Admin</div>
+</div>
 
-    <div class="main">
-        <h1>Bienvenido al Panel, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+<div class="seccion-usuarios">
+    <h2>👥 Usuarios Registrados</h2>
+    <div class="grid-usuarios">
+        <?php
+        if ($resultado_usuarios->num_rows > 0) {
+            while($usuario = $resultado_usuarios->fetch_assoc()) {
+                echo "<div class='tarjeta-usuario'>";
+                echo "<h3>" . htmlspecialchars($usuario["username"]) . "</h3>";
+                echo "<p><strong>ID:</strong> " . htmlspecialchars($usuario["id_users"]) . "</p>";
+                echo "<p><strong>Contraseña:</strong> " . htmlspecialchars($usuario["contrasenya"]) . "</p>";
+                echo "<p><strong>Email:</strong> " . htmlspecialchars($usuario["email"]) . "</p>";
+                echo "<p><strong>Teléfono:</strong> " . htmlspecialchars($usuario["telefono"]) . "</p>";
+                echo "<p><strong>Fecha de registro:</strong> " . htmlspecialchars($usuario["fecha_registro"]) . "</p>";
+                echo "<a class='boton-accion' href='#'>Editar</a>";
+                echo "</div>";
+            }
+        } else {
+            echo "<p style='color: #fff;'>No hay usuarios registrados.</p>";
+        }
 
-        <div class="box">
-            <h3>Configuración</h3>
-            <p>Desde aquí podrás cambiar la configuración de tu sitio.</p>
-        </div>
+        $conexion->close();
+        ?>
     </div>
+</div>
+
+<div class="pie-pagina">
+    &copy; 2025 Panel de administración
+</div>
 
 </body>
 </html>
