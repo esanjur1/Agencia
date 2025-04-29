@@ -1,4 +1,5 @@
 <?php
+//Conexion a la base de datos
 $host = "localhost";
 $usuario = "eric";
 $contrasena = "Eric123!";
@@ -9,6 +10,8 @@ $conexion = new mysqli($host, $usuario, $contrasena, $bd);
 if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);
 }
+
+//Consulta realizadad a las tablas viajes y actividades
 
 $sql_viajes = "SELECT * FROM viajes";
 $resultado_viajes = $conexion->query($sql_viajes);
