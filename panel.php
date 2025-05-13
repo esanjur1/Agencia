@@ -53,7 +53,7 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
 </div>
 
 <div style="text-align: right; margin: 20px;">
-    <a href="configActividadesViajes.php" class="boton-config">Configuración de Actividades</a>
+    <a href="configActividadesViajes.php" class="boton-config">Panel de Actividades/Viajes</a>
 </div>
 
 <div class="pie-pagina">
