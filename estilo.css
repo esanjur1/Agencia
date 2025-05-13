@@ -86,3 +86,18 @@
             color: #aaa;
             border-top: 1px solid #444;
         }
+	.boton-actividades {
+	    display: inline-block;
+	    padding: 10px 20px;
+	    background-color: #afb2b4;
+	    color: white;
+	    text-decoration: none;
+	    border-radius: 5px;
+	    font-family: Arial, sans-serif;
+	    font-size: 14px;
+	    transition: background-color 0.3s ease;
+	}
+
+	.boton-actividades:hover {
+	    background-color: #afb2b4;
+	}
