@@ -52,6 +52,10 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
     </div>
 </div>
 
+<div style="text-align: right; margin: 20px;">
+    <a href="configActividadesViajes.php" class="boton-config">Configuración de Actividades</a>
+</div>
+
 <div class="pie-pagina">
     &copy; 2025 Panel de administración
 </div>
