@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.encabezado {
+    background-color: #ffffff;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.nombre-agencia {
+    font-size: 22px;
+    font-weight: 600;
+    color: #222;
+}
+
+.seccion-usuarios {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.seccion-usuarios h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #444;
+    font-size: 20px;
+}
+
+.grid-usuarios {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta-usuario {
+    background-color: #fff;
+    padding: 16px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: box-shadow 0.2s ease;
+}
+
+.tarjeta-usuario:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-usuario h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #111;
+}
+
+.tarjeta-usuario p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.tarjeta-usuario p strong {
+    font-weight: 600;
+    color: #222;
+}
+
+.boton-accion {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.boton-accion:hover {
+    background-color: #ccc;
+}
+
+.pie-pagina {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: #888;
+    border-top: 1px solid #ddd;
+    background-color: #fafafa;
+    margin-top: 40px;
+}
+
+.boton-actividades {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #afb2b4;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-actividades:hover {
+    background-color: #afb2b4;
+}
