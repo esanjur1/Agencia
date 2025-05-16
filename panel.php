@@ -1,4 +1,5 @@
 <?php
+//Conexion a la base de datos
 $host = "localhost";
 $usuario = "eric";
 $contrasena = "Eric123!";
@@ -10,6 +11,7 @@ if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);
 }
 
+//Consulta a la tabla de usuarios
 $sql_usuarios = "SELECT * FROM users";
 $resultado_usuarios = $conexion->query($sql_usuarios);
 ?>
@@ -28,7 +30,7 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
 </div>
 
 <div class="seccion-usuarios">
-    <h2>👥 Usuarios Registrados</h2>
+    <h2>Usuarios Registrados</h2>
     <div class="grid-usuarios">
         <?php
         if ($resultado_usuarios->num_rows > 0) {
