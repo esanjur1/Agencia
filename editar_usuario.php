@@ -38,3 +38,21 @@ $sql = "SELECT * FROM users WHERE id_users=$id";
 $resultado = $conexion->query($sql);
 $usuario = $resultado->fetch_assoc();
 ?>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="estiloactividades.css">
+</head>
+<body>
+// Se ha añadido un formulario para poder editar los campos del usuario y poder actualizar la base de datos.
+<h2>Editar Usuario</h2>
+<form method="post">
+    <input type="text" value="<?= $usuario['id_users'] ?>" disabled><br><br>
+    <input type="text" name="username" value="<?= $usuario['username'] ?>" required><br><br>
+    <input type="text" name="contrasenya" value="<?= $usuario['contrasenya'] ?>" required><br><br>
+    <input type="email" name="email" value="<?= $usuario['email'] ?>" required><br><br>
+    <input type="text" name="telefono" value="<?= $usuario['telefono'] ?>" required><br><br>
+    <input type="text" value="<?= $usuario['fecha_registro'] ?>" disabled><br><br>
+// Y con este boton lo que hara es enviar los cambios y aplicarlos tanto en la página web como en la BD.
+    <button type="submit">Actualizar</button>
+</form>
+</body>
