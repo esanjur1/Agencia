@@ -38,3 +38,18 @@ $sql = "SELECT * FROM actividades WHERE id=$id";
 $resultado = $conexion->query($sql);
 $actividad = $resultado->fetch_assoc();
 ?>
+<head>
+    <link rel="stylesheet" href="estiloactividades.css">
+</head>
+<body>
+<h2>Editar Actividad</h2>
+<form method="post">
+    <input type="text" name="nombre" value="<?= $actividad['nombre'] ?>" required><br>
+    <input type="text" name="ubicacion" value="<?= $actividad['ubicacion'] ?>" required><br>
+    <input type="date" name="fecha" value="<?= $actividad['fecha'] ?>" required><br>
+    <input type="number" step="0.01" name="precio" value="<?= $actividad['precio'] ?>" required><br>
+    <textarea name="descripcion"><?= $actividad['descripcion'] ?></textarea><br>
+    <input type="text" name="imagen" value="<?= $actividad['imagen'] ?>"><br>
+    <button type="submit">Actualizar</button>
+</form>
+</body>
