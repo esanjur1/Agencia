@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Si la consulta SQL sale bien mostrara un mensaje de que se ha completado o que no se ha podido actualizar.
     if ($conexion->query($sql) === TRUE) {
-        echo "Usuario actualizado correctamente. <a href='panel1.php'>Volver</a>";
+        echo "Usuario actualizado correctamente. <a href='panel.php'>Volver</a>";
         exit;
     } else {
         echo "Error al actualizar: " . $conexion->error;
