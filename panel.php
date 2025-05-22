@@ -42,7 +42,8 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
                 echo "<p><strong>Email:</strong> " . htmlspecialchars($usuario["email"]) . "</p>";
                 echo "<p><strong>Teléfono:</strong> " . htmlspecialchars($usuario["telefono"]) . "</p>";
                 echo "<p><strong>Fecha de registro:</strong> " . htmlspecialchars($usuario["fecha_registro"]) . "</p>";
-                echo "<a class='boton-accion' href='#'>Editar</a>";
+		echo "<a class='boton-accion' href='editar_usuario.php?id=" . $usuario["id_users"] . "'>Editar</a>";
+                echo "<a class='boton-accion' href='eliminar_usuarios.php?id=" . $usuario["id_users"] ."' onclick=\"return confirm('¿Seguro que quieres eliminar a este usuario?');\">Eliminar</a>";
                 echo "</div>";
             }
         } else {
@@ -56,10 +57,6 @@ $resultado_usuarios = $conexion->query($sql_usuarios);
 
 <div style="text-align: right; margin: 20px;">
     <a href="configActividadesViajes.php" class="boton-actividades">Panel de Actividades/Viajes</a>
-</div>
-
-<div class="pie-pagina">
-    &copy; 2025 Panel de administración
 </div>
 
 </body>
