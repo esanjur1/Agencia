@@ -85,7 +85,7 @@ $resultado_viajes = $conexion->query($sql_viajes);
 </div>
 
 <div style="text-align: right; margin: 20px;">
-    <a href="panel1.php" class="boton-actividades">Volver al Panel Principal</a>
+    <a href="panel.php" class="boton-actividades">Volver al Panel Principal</a>
 </div>
 </body>
 </html>
